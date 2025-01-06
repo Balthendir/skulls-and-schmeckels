@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs5nu3lnrv5ke"]
+
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_ilxls"]
+[ext_resource type="PackedScene" uid="uid://bljirq8yd73pp" path="res://scenes/player_ship.tscn" id="1_m1vkw"]
+[ext_resource type="PackedScene" uid="uid://bgkc0qe0ve5ci" path="res://scenes/cannon.tscn" id="2_jo1pn"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ilxls")
+
+[node name="PlayerShip" parent="." instance=ExtResource("1_m1vkw")]
+position = Vector2(338, 300)
+
+[node name="Cannon" parent="PlayerShip" instance=ExtResource("2_jo1pn")]
+position = Vector2(-139, -52)
+
+[node name="Cannonballs" type="Node" parent="PlayerShip"]
+
+[connection signal="cannonball" from="PlayerShip/Cannon" to="." method="_on_cannon_cannonball"]

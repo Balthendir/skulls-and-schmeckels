@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgkc0qe0ve5ci"]
+
+[ext_resource type="Texture2D" uid="uid://c7luucbw0hagg" path="res://assets/cannon.png" id="1_3nets"]
+[ext_resource type="Script" path="res://scenes/cannon.gd" id="1_vcyii"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urypx"]
+size = Vector2(41, 88)
+
+[node name="Cannon" type="Node2D"]
+script = ExtResource("1_vcyii")
+
+[node name="shoot_cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_3nets")
+
+[node name="RigidBody2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_urypx")
+
+[node name="Ballspawn" type="Marker2D" parent="."]
+position = Vector2(0, -42)
+
+[connection signal="timeout" from="shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]
