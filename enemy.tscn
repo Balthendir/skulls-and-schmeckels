@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dsaeep2w1dqrf" path="res://assets/kraken.png" id="1_l1m58"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pdvse"]
-radius = 88.0057
+radius = 167.027
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d7p3u"]
-radius = 82.0244
+radius = 159.113
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jseq8"]
 bg_color = Color(0.399961, 0.197904, 0.201238, 0.756863)
@@ -31,7 +31,7 @@ collision_mask = 2
 script = ExtResource("1_gpedy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_l1m58")
 
 [node name="Hurtbox" type="Area2D" parent="."]
@@ -47,10 +47,10 @@ shape = SubResource("CircleShape2D_d7p3u")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 z_index = 5
-offset_left = -39.0
-offset_top = -74.0
-offset_right = 39.0
-offset_bottom = -63.0
+offset_left = -75.0
+offset_top = -146.0
+offset_right = 75.0
+offset_bottom = -133.0
 theme_override_styles/background = SubResource("StyleBoxFlat_jseq8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5t33w")
 max_value = 5.0

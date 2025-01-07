@@ -1,18 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs5nu3lnrv5ke"]
+[gd_scene load_steps=7 format=4 uid="uid://cs5nu3lnrv5ke"]
 
 [ext_resource type="PackedScene" uid="uid://bljirq8yd73pp" path="res://scenes/player_ship.tscn" id="1_m1vkw"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_u2ycp"]
-[ext_resource type="PackedScene" uid="uid://bgkc0qe0ve5ci" path="res://scenes/cannon.tscn" id="2_jo1pn"]
 [ext_resource type="PackedScene" uid="uid://be8nmsml1fa3x" path="res://enemy.tscn" id="4_qdpr1"]
+[ext_resource type="Texture2D" uid="uid://bqb6cfb1uqp8h" path="res://assets/water.jpg" id="5_ouw5h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnxt1"]
+texture = ExtResource("5_ouw5h")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+
+[sub_resource type="TileSet" id="TileSet_7ehyy"]
+tile_size = Vector2i(512, 512)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Water"
+terrain_set_0/terrain_0/color = Color(1.44392e-07, 0.428504, 0.527334, 1)
+sources/0 = SubResource("TileSetAtlasSource_rnxt1")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_u2ycp")
 
 [node name="PlayerShip" parent="." instance=ExtResource("1_m1vkw")]
-position = Vector2(338, 300)
-
-[node name="Cannon" parent="PlayerShip" instance=ExtResource("2_jo1pn")]
-position = Vector2(-139, -52)
+position = Vector2(-17, 93)
 
 [node name="Enemy" parent="." instance=ExtResource("4_qdpr1")]
 position = Vector2(893, 292)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(5120, 3072)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -10
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_7ehyy")

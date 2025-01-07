@@ -4,21 +4,24 @@
 [ext_resource type="Script" path="res://scripts/cannonball.gd" id="1_18cey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03jqa"]
+radius = 19.0263
 
 [node name="Cannonball" type="Area2D"]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_18cey")
+speed = 1000
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_03jqa")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hitbox"]
-position = Vector2(2.5, -2.5)
-scale = Vector2(0.0508333, 0.0508333)
+position = Vector2(4.5, -5.5)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_1oax6")
 
 [node name="Projectile_Timer" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 autostart = true
 
