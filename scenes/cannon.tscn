@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/cannon.gd" id="1_g77h6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urypx"]
-size = Vector2(41, 88)
+size = Vector2(87, 66)
 
 [node name="Cannon" type="Node2D"]
 script = ExtResource("1_g77h6")
@@ -13,16 +13,18 @@ script = ExtResource("1_g77h6")
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(45, -3.8147e-06)
+rotation = 1.5708
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_3nets")
 
 [node name="RigidBody2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0.5, 0)
+position = Vector2(45, 0)
 shape = SubResource("RectangleShape2D_urypx")
 
 [node name="Ballspawn" type="Marker2D" parent="."]
-position = Vector2(0, -42)
+position = Vector2(90, 0)
 
 [connection signal="timeout" from="shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]
