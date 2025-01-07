@@ -12,7 +12,3 @@ position = Vector2(338, 300)
 
 [node name="Cannon" parent="PlayerShip" instance=ExtResource("2_jo1pn")]
 position = Vector2(-139, -52)
-
-[node name="Cannonballs" type="Node" parent="PlayerShip"]
-
-[connection signal="cannonball" from="PlayerShip/Cannon" to="." method="_on_cannon_cannonball"]

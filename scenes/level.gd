@@ -15,9 +15,8 @@ func _on_cannon_cannonball(pos) -> void:
 	var cannonball = cannonball_scene.instantiate()
 	
 	$PlayerShip/Cannonballs.add_child(cannonball)
-	var cannon_pos = $PlayerShip/Cannon.global_position
-	var cannon_orientation = $PlayerShip/Cannon.transform.x
-	cannonball.position = pos
-	print(cannon_pos)
+	
+	
+
 	print("Cannon shot!")
 	

@@ -2,6 +2,11 @@ extends Area2D
 
 @export var speed = 400
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
-	position.y -= delta * speed
+	var velocity = Vector2.UP.rotated(rotation) * speed
+	position += delta * velocity
+
+
+func _on_projectile_timer_timeout() -> void:
+	queue_free()
