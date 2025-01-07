@@ -1,17 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://cq28ilotmid86"]
 
 [ext_resource type="Texture2D" uid="uid://sau20lpfltwl" path="res://assets/cannonball.png" id="1_1oax6"]
-[ext_resource type="Script" path="res://scenes/cannonball.gd" id="1_7wse7"]
+[ext_resource type="Script" path="res://scripts/cannonball.gd" id="1_18cey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03jqa"]
 
 [node name="Cannonball" type="Area2D"]
-script = ExtResource("1_7wse7")
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_18cey")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_03jqa")
 
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Hitbox"]
 position = Vector2(2.5, -2.5)
 scale = Vector2(0.0508333, 0.0508333)
 texture = ExtResource("1_1oax6")
@@ -20,4 +22,5 @@ texture = ExtResource("1_1oax6")
 one_shot = true
 autostart = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Projectile_Timer" to="." method="_on_projectile_timer_timeout"]

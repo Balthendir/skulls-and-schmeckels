@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://be8nmsml1fa3x"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_gpedy"]
+[ext_resource type="Texture2D" uid="uid://dsaeep2w1dqrf" path="res://assets/kraken.png" id="1_l1m58"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdvse"]
+radius = 88.0057
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7p3u"]
+radius = 82.0244
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jseq8"]
+bg_color = Color(0.399961, 0.197904, 0.201238, 0.756863)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t33w"]
+bg_color = Color(1.27546e-06, 0.632545, 0.128379, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_gpedy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_l1m58")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_pdvse")
+debug_color = Color(0.926402, 0.212593, 0.431196, 0.42)
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d7p3u")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 5
+offset_left = -39.0
+offset_top = -74.0
+offset_right = 39.0
+offset_bottom = -63.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jseq8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5t33w")
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

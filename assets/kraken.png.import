@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyxdjx6ftimea"
-path="res://.godot/imported/cannon - Kopie.png-fb711a4ff7c25c4bbab24a898b1de014.ctex"
+uid="uid://dsaeep2w1dqrf"
+path="res://.godot/imported/kraken.png-0c8b818ca0f3a7f0f9a848f16abde554.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cannon - Kopie.png"
-dest_files=["res://.godot/imported/cannon - Kopie.png-fb711a4ff7c25c4bbab24a898b1de014.ctex"]
+source_file="res://assets/kraken.png"
+dest_files=["res://.godot/imported/kraken.png-0c8b818ca0f3a7f0f9a848f16abde554.ctex"]
 
 [params]
 

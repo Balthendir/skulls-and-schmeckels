@@ -13,7 +13,7 @@ func shoot_cannon():
 		instance.position = $Ballspawn.global_position
 		instance.rotation = get_parent().global_rotation
 		
-func _process(delta: float) -> void:
+func _process(float) -> void:
 	shoot_cannon()
 	
 
