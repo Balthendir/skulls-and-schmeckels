@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bljirq8yd73pp" path="res://scenes/player_ship.tscn" id="1_m1vkw"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_u2ycp"]
-[ext_resource type="PackedScene" uid="uid://be8nmsml1fa3x" path="res://enemy.tscn" id="4_qdpr1"]
+[ext_resource type="PackedScene" uid="uid://be8nmsml1fa3x" path="res://scenes/enemy.tscn" id="4_qdpr1"]
 [ext_resource type="Texture2D" uid="uid://bqb6cfb1uqp8h" path="res://assets/water.jpg" id="5_ouw5h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnxt1"]
