@@ -13,3 +13,5 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+.vscode/settings.json
+addons/godot-git-plugin/win64/~libgit_plugin.windows.editor.x86_64.dll
