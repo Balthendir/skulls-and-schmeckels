@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3dk43k0l3bl6"]
+
+[ext_resource type="Script" path="res://fsm_ship.gd" id="1_6p1mf"]
+[ext_resource type="Texture2D" uid="uid://dd757khyidwdw" path="res://assets/ship-bg.png" id="2_whgtb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v71su"]
+size = Vector2(476, 198)
+
+[node name="Ship" type="Node2D" groups=["ship"]]
+
+[node name="FSM_Ship" type="RigidBody2D" parent="." groups=["ship"]]
+collision_layer = 32
+collision_mask = 0
+mass = 100.0
+linear_damp = 0.6
+angular_damp = 0.9
+script = ExtResource("1_6p1mf")
+
+[node name="Sprite2D" type="Sprite2D" parent="FSM_Ship"]
+rotation = 1.5708
+texture = ExtResource("2_whgtb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FSM_Ship"]
+shape = SubResource("RectangleShape2D_v71su")
+
+[node name="Deck" type="Area2D" parent="." groups=["ship"]]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Deck" groups=["ship"]]
+polygon = PackedVector2Array(230, 3, 80, 56, -179, 59, -238, 43, -239, -37, -186, -53, 81, -52)
+
+[connection signal="body_entered" from="Deck" to="FSM_Ship" method="_on_deck_body_entered"]
