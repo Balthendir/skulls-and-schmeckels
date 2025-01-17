@@ -24,3 +24,4 @@ func _process(float) -> void:
 func _on_shoot_cooldown_timeout() -> void:
 	can_shoot = true
 #fu stupido
+#fuuuuuu

@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://cs5nu3lnrv5ke"]
+[gd_scene load_steps=7 format=4 uid="uid://cs5nu3lnrv5ke"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_u2ycp"]
 [ext_resource type="PackedScene" uid="uid://d3dk43k0l3bl6" path="res://scenes/fsm_ship.tscn" id="3_h1bfl"]
 [ext_resource type="PackedScene" uid="uid://be8nmsml1fa3x" path="res://scenes/enemy.tscn" id="4_qdpr1"]
 [ext_resource type="Texture2D" uid="uid://bqb6cfb1uqp8h" path="res://assets/water.jpg" id="5_ouw5h"]
-[ext_resource type="PackedScene" uid="uid://qtatb1tp3mre" path="res://scenes/character.tscn" id="5_xftsp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnxt1"]
 texture = ExtResource("5_ouw5h")
@@ -36,8 +35,4 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAA
 tile_set = SubResource("TileSet_7ehyy")
 
 [node name="Ship" parent="." instance=ExtResource("3_h1bfl")]
-position = Vector2(417, 271)
-
-[node name="Character" parent="Ship" instance=ExtResource("5_xftsp")]
-position = Vector2(-281, -47)
-scale = Vector2(0.2, 0.2)
+position = Vector2(261, 463)
