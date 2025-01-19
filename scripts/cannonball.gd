@@ -11,5 +11,5 @@ func _process(delta: float) -> void:
 func _on_projectile_timer_timeout() -> void:
 	queue_free()
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	queue_free()

@@ -1,14 +1,30 @@
 extends Node2D
 
 @onready var cannonball : PackedScene = load("res://scenes/cannonball.tscn")
+@onready var interaction_area : InteractionArea = $InteractionArea
 
 var can_shoot: bool = true
+var cannon_active: bool = false
+
+func _ready():
+	interaction_area.interact = Callable(self, "_on_interact")
+
+
+func _on_interact():
+	if cannon_active:
+		cannon_active = false
+	else:
+		cannon_active = true
+
+
+
 
 func get_input():
-	look_at(get_global_mouse_position())
+	if cannon_active:
+		look_at(get_global_mouse_position())
 
 func shoot_cannon():
-	if Input.is_action_just_pressed("shoot") and can_shoot:
+	if Input.is_action_just_pressed("shoot") && cannon_active && can_shoot:
 		can_shoot = false
 		$shoot_cooldown.start()
 		var instance = cannonball.instantiate()
@@ -23,5 +39,3 @@ func _process(float) -> void:
 
 func _on_shoot_cooldown_timeout() -> void:
 	can_shoot = true
-#fu stupido
-#fuuuuuu

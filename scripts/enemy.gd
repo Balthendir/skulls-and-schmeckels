@@ -9,7 +9,7 @@ func _on_ready():
 	set_health_bar()
 	$HealthBar.max_value = MAX_HEALTH
 
-func _process(float):
+func _process(_delta: float):
 	pass
 	
 	
