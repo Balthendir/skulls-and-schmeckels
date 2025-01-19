@@ -6,8 +6,8 @@ class_name Player extends CharacterBody2D
 var rotation_direction = 0
 
 func get_input():
-	rotation_direction = Input.get_axis("left", "right")
-	velocity = transform.x * Input.get_axis("down", "up") * speed
+	rotation_direction = Input.get_axis("ui_left", "ui_right")
+	velocity = transform.x * Input.get_axis("ui_down", "ui_up") * speed
 
 
 

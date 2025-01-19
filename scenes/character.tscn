@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://qtatb1tp3mre"]
+[gd_scene load_steps=4 format=3 uid="uid://qtatb1tp3mre"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_jhmm8"]
 [ext_resource type="Texture2D" uid="uid://g2o3pbm1nl4e" path="res://icon.svg" id="2_fu0yd"]
@@ -6,10 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e378c"]
 size = Vector2(126, 126)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pygop"]
-size = Vector2(124, 128)
-
-[node name="Character" type="CharacterBody2D" groups=["player"]]
+[node name="Character" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("1_jhmm8")
@@ -19,13 +16,3 @@ texture = ExtResource("2_fu0yd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e378c")
-
-[node name="Ship Detector" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship Detector"]
-shape = SubResource("RectangleShape2D_pygop")
-
-[connection signal="area_entered" from="Ship Detector" to="." method="_on_ship_detector_area_entered"]
-[connection signal="area_exited" from="Ship Detector" to="." method="_on_ship_detector_area_exited"]

@@ -16,4 +16,12 @@ func _integrate_forces(state):
 	if Input.is_action_pressed("ui_left"):
 		rotation_direction -= 1
 	state.apply_torque(rotation_direction * torque * 1000)
-	
+
+
+func _on_deck_body_entered(_body: Node2D) -> void:
+	if _body is Player && _body.get_parent() != self:
+		_body.reparent.call_deferred(self)
+
+func _on_deck_body_exited(_body: Node2D) -> void:
+	if _body is Player and _body.get_parent() != get_node("/root/Node2D/"):
+		_body.call_deferred("reparent", get_node("/root/Node2D/"))

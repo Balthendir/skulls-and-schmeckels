@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 
 @export var speed := 400
@@ -13,31 +13,9 @@ func get_input():
 
 func _physics_process(delta: float) -> void:
 	get_input()
-	if is_onboard:
-		if is_moving:
-			velocity += ship.linear_velocity
-		else:
-			velocity = ship.linear_velocity
+	#if is_onboard:
+		#if is_moving:
+			#velocity += ship.linear_velocity
+		#else:
+			#velocity = ship.linear_velocity
 	move_and_slide()
-
-
-func _on_ship_detector_area_entered(area: Area2D) -> void:
-	if area.is_in_group("ship"):
-		if area.get_parent() != self:
-			self.reparent(area)
-			
-		##	call_deferred("addPlayerChild", area)
-			is_onboard = true
-			print("Workin?")
-		else:
-			is_onboard = false
-
-func addPlayerChild(body):
-	body.add_child(self)
-
-
-
-
-
-func _on_ship_detector_area_exited(area: Area2D) -> void:
-	pass
