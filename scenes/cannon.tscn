@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urojq"]
 size = Vector2(111, 64)
 
-[node name="Cannon" type="Node2D"]
+[node name="Cannon" type="Node2D" groups=["interact station"]]
 script = ExtResource("1_g77h6")
 
 [node name="shoot_cooldown" type="Timer" parent="."]

@@ -2,15 +2,20 @@ extends Node2D
 
 @onready var cannonball : PackedScene = load("res://scenes/cannonball.tscn")
 @onready var interaction_area : InteractionArea = $InteractionArea
+@onready var player = get_tree().get_first_node_in_group("player")
+
+signal cannon_boarded
 
 var can_shoot: bool = true
 var cannon_active: bool = false
 
+
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 
-
 func _on_interact():
+	cannon_boarded.emit()
+	print(player)
 	if cannon_active:
 		cannon_active = false
 	else:
