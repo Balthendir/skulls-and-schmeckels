@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cq28ilotmid86"]
 
 [ext_resource type="Texture2D" uid="uid://sau20lpfltwl" path="res://assets/cannonball.png" id="1_1oax6"]
-[ext_resource type="Script" path="res://scripts/cannonball.gd" id="1_18cey"]
+[ext_resource type="Script" path="res://scripts/characters/cannonball.gd" id="1_18cey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_03jqa"]
 radius = 19.0263

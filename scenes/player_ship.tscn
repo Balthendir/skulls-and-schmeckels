@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bljirq8yd73pp"]
 
 [ext_resource type="Texture2D" uid="uid://dd757khyidwdw" path="res://assets/ship-bg.png" id="1_hbmre"]
-[ext_resource type="Script" path="res://scripts/playership.gd" id="1_qmt5c"]
+[ext_resource type="Script" path="res://scripts/characters/playership.gd" id="1_qmt5c"]
 [ext_resource type="PackedScene" uid="uid://bgkc0qe0ve5ci" path="res://scenes/cannon.tscn" id="3_eydkr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikqhj"]
@@ -23,5 +23,5 @@ texture = ExtResource("1_hbmre")
 zoom = Vector2(0.5, 0.5)
 limit_smoothed = true
 
-[node name="Cannon" parent="Camera2D" instance=ExtResource("3_eydkr")]
-position = Vector2(-143, -33)
+[node name="Cannon" parent="." instance=ExtResource("3_eydkr")]
+position = Vector2(-163, -44)

@@ -1,32 +1,31 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgkc0qe0ve5ci"]
 
 [ext_resource type="Texture2D" uid="uid://c7luucbw0hagg" path="res://assets/cannon.png" id="1_3nets"]
-[ext_resource type="Script" path="res://scripts/cannon.gd" id="1_g77h6"]
+[ext_resource type="Script" path="res://scripts/characters/cannon.gd" id="1_g77h6"]
 [ext_resource type="PackedScene" uid="uid://bra5672ac0es" path="res://scenes/interaction area.tscn" id="3_idvqx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urojq"]
-size = Vector2(111, 64)
+size = Vector2(62, 60)
 
-[node name="Cannon" type="Node2D" groups=["interact station"]]
+[node name="Cannon" type="Node2D" groups=["cannon"]]
 script = ExtResource("1_g77h6")
 
 [node name="shoot_cooldown" type="Timer" parent="."]
 one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(45, -3.8147e-06)
-rotation = 1.5708
+position = Vector2(0, -40)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_3nets")
 
 [node name="Ballspawn" type="Marker2D" parent="."]
-position = Vector2(90, 0)
+position = Vector2(0, -80)
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_idvqx")]
 action_name = "control"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(33.5, 0)
+position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_urojq")
 
 [connection signal="timeout" from="shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]

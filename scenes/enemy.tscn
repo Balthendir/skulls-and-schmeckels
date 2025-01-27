@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://be8nmsml1fa3x"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_gpedy"]
+[ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_gpedy"]
 [ext_resource type="Texture2D" uid="uid://dsaeep2w1dqrf" path="res://assets/kraken.png" id="1_l1m58"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pdvse"]

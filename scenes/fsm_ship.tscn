@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3dk43k0l3bl6"]
 
-[ext_resource type="Script" path="res://scripts/fsm_ship.gd" id="1_6p1mf"]
+[ext_resource type="Script" path="res://scripts/characters/fsm_ship.gd" id="1_6p1mf"]
 [ext_resource type="Texture2D" uid="uid://dd757khyidwdw" path="res://assets/ship-bg.png" id="2_whgtb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v71su"]
