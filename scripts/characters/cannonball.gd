@@ -4,7 +4,7 @@ extends Area2D
 
 
 func _process(delta: float) -> void:
-	var velocity = Vector2.UP.rotated(rotation) * speed
+	var velocity = Vector2.LEFT.rotated(rotation) * speed
 	position += delta * velocity
 
 
