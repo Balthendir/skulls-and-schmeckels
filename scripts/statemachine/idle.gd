@@ -18,5 +18,5 @@ func physics_update(_delta: float) -> void:
 
 func on_object_interacted(object):
 	print(object)
-	if object.is_in_group("cannon") and object.get("cannon_active") == false:
-		finished.emit(USING_CANNON)
+	if object.is_in_group("Usable") and object.get("object_active") == false:
+		finished.emit(USING_OBJECT)

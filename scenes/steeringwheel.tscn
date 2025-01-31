@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp0j8fqovsht8"]
+
+[ext_resource type="Texture2D" uid="uid://gqhhm00r8krf" path="res://assets/steeringwheel.png" id="1_2woei"]
+[ext_resource type="Script" path="res://scenes/steeringwheel.gd" id="1_6isen"]
+[ext_resource type="PackedScene" uid="uid://bra5672ac0es" path="res://scenes/interaction area.tscn" id="2_8c8sd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htf3d"]
+radius = 215.928
+
+[node name="Steering Wheel" type="Node2D" groups=["Usable"]]
+script = ExtResource("1_6isen")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_2woei")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_8c8sd")]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_htf3d")

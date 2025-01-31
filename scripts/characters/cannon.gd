@@ -10,21 +10,21 @@ var rotation_direction = 0
 
 
 var can_shoot: bool = true
-var cannon_active: bool = false
+var object_active: bool = false
 
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
 
 func _on_interact():
-	cannon_active = !cannon_active
+	object_active = !object_active
 
 func get_input():
-	if cannon_active:
+	if object_active:
 		rotation_direction = Input.get_axis("left", "right")
 		
 
 func shoot_cannon():
-	if Input.is_action_just_pressed("shoot") && cannon_active && can_shoot:
+	if Input.is_action_just_pressed("shoot") && object_active && can_shoot:
 		can_shoot = false
 		$shoot_cooldown.start()
 		var instance = cannonball.instantiate()

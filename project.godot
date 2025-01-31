@@ -28,7 +28,7 @@ version_control/autoload_on_startup=true
 [global_group]
 
 player=""
-cannon=""
+Usable=""
 
 [input]
 

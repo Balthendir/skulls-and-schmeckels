@@ -1,27 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://bljirq8yd73pp"]
+[gd_scene load_steps=7 format=3 uid="uid://bljirq8yd73pp"]
 
 [ext_resource type="Texture2D" uid="uid://dd757khyidwdw" path="res://assets/ship-bg.png" id="1_hbmre"]
 [ext_resource type="Script" path="res://scripts/characters/playership.gd" id="1_qmt5c"]
 [ext_resource type="PackedScene" uid="uid://bgkc0qe0ve5ci" path="res://scenes/cannon.tscn" id="3_eydkr"]
+[ext_resource type="PackedScene" uid="uid://dp0j8fqovsht8" path="res://scenes/steeringwheel.tscn" id="4_r5vhk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikqhj"]
 size = Vector2(409, 112)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7l6k"]
+size = Vector2(400, 113)
+
 [node name="Ship" type="CharacterBody2D"]
 script = ExtResource("1_qmt5c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-34.5, 5)
-shape = SubResource("RectangleShape2D_ikqhj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 2
 rotation = 1.5708
 texture = ExtResource("1_hbmre")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-34.5, 5)
+shape = SubResource("RectangleShape2D_ikqhj")
+
+[node name="Steering Wheel" parent="." instance=ExtResource("4_r5vhk")]
+
+[node name="Cannon" parent="." instance=ExtResource("3_eydkr")]
+position = Vector2(-163, -44)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 limit_smoothed = true
 
-[node name="Cannon" parent="." instance=ExtResource("3_eydkr")]
-position = Vector2(-163, -44)
+[node name="Deck" type="Area2D" parent="."]
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck"]
+position = Vector2(-37, 3.5)
+shape = SubResource("RectangleShape2D_c7l6k")
+
+[connection signal="body_entered" from="Deck" to="." method="_on_deck_body_entered"]
+[connection signal="body_exited" from="Deck" to="." method="_on_deck_body_exited"]

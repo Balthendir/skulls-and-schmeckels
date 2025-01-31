@@ -15,3 +15,12 @@ func _physics_process(delta):
 	get_input()
 	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
+
+
+func _on_deck_body_entered(_body: Node2D) -> void:
+	if _body is Player && _body.get_parent() != self:
+		_body.reparent.call_deferred(self)
+
+func _on_deck_body_exited(_body: Node2D) -> void:
+	if _body is Player and _body.get_parent() != get_node("/root/Level/"):
+		_body.reparent.call_deferred(get_node("/root/Level/"))

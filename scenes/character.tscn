@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/statemachine/statemachine.gd" id="3_gby23"]
 [ext_resource type="Script" path="res://scripts/statemachine/idle.gd" id="4_skpdx"]
 [ext_resource type="Script" path="res://scripts/statemachine/running.gd" id="5_cmx70"]
-[ext_resource type="Script" path="res://scripts/statemachine/using_cannon.gd" id="6_yy5ol"]
+[ext_resource type="Script" path="res://scripts/statemachine/using_object.gd" id="6_yy5ol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e378c"]
 size = Vector2(126, 126)
@@ -30,5 +30,5 @@ script = ExtResource("4_skpdx")
 [node name="Running" type="Node" parent="StateMachine"]
 script = ExtResource("5_cmx70")
 
-[node name="Using Cannon" type="Node" parent="StateMachine"]
+[node name="Using Object" type="Node" parent="StateMachine"]
 script = ExtResource("6_yy5ol")
