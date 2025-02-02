@@ -1,6 +1,8 @@
 class_name InteractionArea extends Area2D
 
 @export var action_name: String = "interact"
+var object_active:= false
+var interactable:= true
 
 var interact: Callable = func():
 	pass

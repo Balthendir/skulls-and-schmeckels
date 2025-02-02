@@ -1,20 +1,22 @@
 extends Node2D
 
 @onready var interaction_area : InteractionArea = $InteractionArea
-var ship
+@onready var object_active = interaction_area.object_active
+@onready var ship = self.get_parent()
 
 var rotation_direction = 0
 
-var object_active: bool = false
-
 func _ready():
 	interaction_area.interact = Callable(self, "_on_interact")
-	ship = self.get_parent()
-
 
 func _on_interact():
-	object_active = !object_active
+	object_active = true
 
+func _input(event):
+	if object_active:		
+		if event.is_action_pressed("interact"):
+			Events.interaction_finished.emit(self)
+			object_active = false
 
 func _physics_process(delta: float) -> void:
 	if object_active:

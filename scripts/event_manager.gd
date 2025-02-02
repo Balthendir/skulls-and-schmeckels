@@ -1,3 +1,4 @@
 extends Node2D
 
 signal object_interacted
+signal interaction_finished

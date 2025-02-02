@@ -60,7 +60,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAA
 tile_set = SubResource("TileSet_7ehyy")
 
 [node name="Character" parent="." instance=ExtResource("5_xftsp")]
-position = Vector2(456, 232)
+position = Vector2(27, 135)
 collision_mask = 0
 floor_stop_on_slope = false
 platform_floor_layers = 4294967248
