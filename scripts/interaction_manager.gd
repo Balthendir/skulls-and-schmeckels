@@ -41,6 +41,5 @@ func _input(event):
 			label.hide()
 			Events.object_interacted.emit(object)
 			await active_areas[0].interact.call()
-			await Events.interaction_finished
 			await get_tree().create_timer(0.1).timeout
 			can_interact = true

@@ -15,6 +15,7 @@ func _ready():
 
 func _on_interact():
 	object_active = true
+	await Events.interaction_finished
 
 func _input(event):
 	if object_active:
@@ -36,7 +37,7 @@ func shoot_cannon():
 		print(global_rotation)
 
 func _process(delta: float) -> void:
-	rotation += rotation_direction * rotation_speed * delta	
+	rotation = clamp(rotation + rotation_speed * rotation_direction * delta, -PI/4, PI/4)
 	shoot_cannon()
 
 func _on_shoot_cooldown_timeout() -> void:

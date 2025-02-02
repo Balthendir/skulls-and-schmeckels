@@ -11,6 +11,7 @@ func _ready():
 
 func _on_interact():
 	object_active = true
+	await Events.interaction_finished
 
 func _input(event):
 	if object_active:		
